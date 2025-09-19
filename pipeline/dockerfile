@@ -1,0 +1,13 @@
+FROM python:latest
+
+WORKDIR pipeline
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY extract.py .
+COPY transform.py .
+COPY load_live_data.py . 
+
+CMD python3 load_live_data.py

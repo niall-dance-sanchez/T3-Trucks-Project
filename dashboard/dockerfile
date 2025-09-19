@@ -1,0 +1,16 @@
+FROM python:latest
+
+WORKDIR dashboard
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt 
+
+COPY visualisations.py .
+COPY data.py . 
+COPY main.py . 
+
+CMD streamlit run main.py --server.port 8501
+
+
+
